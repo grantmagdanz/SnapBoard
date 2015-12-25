@@ -41,3 +41,14 @@ symbol_change = "#+=";
 
 // hese are the keys that have extra options when pressed and held
 press_and_hold_keys = "EUOAÖÄ";
+
+// Keyboard Settings
+general_settings = "General Settings";
+extra_settings = "Extra Settings";
+auto_capitalization = "Auto-Capitalization";
+._shortcut = "\".\" Shortcut";
+keyboard_clicks = "Keyboard Clicks";
+allow_lowercase_key_caps = "Allow Lowercase Key Caps";
+
+keyboard_clicks_note = "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.";
+lowercase_key_cap_note = "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in.";

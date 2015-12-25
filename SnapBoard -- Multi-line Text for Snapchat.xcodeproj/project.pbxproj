@@ -210,7 +210,6 @@
 				4E5B67A1196E03B700114361 /* KeyboardModel.swift */,
 				4ECBD90119F16DC7004FA2A3 /* DefaultKeyboard.swift */,
 				4E60A13D1979FB2E00854CC8 /* DirectionEnum.swift */,
-				00EFFCC51C29EC73000BC823 /* Localizable.strings */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,6 +313,7 @@
 		4E807DBB19461DC700D875D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00EFFCC51C29EC73000BC823 /* Localizable.strings */,
 				4E807DBC19461DC700D875D1 /* Info.plist */,
 			);
 			name = "Supporting Files";

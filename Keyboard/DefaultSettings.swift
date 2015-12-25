@@ -27,26 +27,26 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     var settingsList: [(String, [String])] {
         get {
             return [
-                ("General Settings", [kAutoCapitalization, kPeriodShortcut, kKeyboardClicks]),
-                ("Extra Settings", [kSmallLowercase])
+                (NSLocalizedString("general_settings", comment: "The label for general settings."), [kAutoCapitalization, kPeriodShortcut, kKeyboardClicks]),
+                (NSLocalizedString("extra_settings", comment: "The label for extra settings."), [kSmallLowercase])
             ]
         }
     }
     var settingsNames: [String:String] {
         get {
             return [
-                kAutoCapitalization: "Auto-Capitalization",
-                kPeriodShortcut:  "“.” Shortcut",
-                kKeyboardClicks: "Keyboard Clicks",
-                kSmallLowercase: "Allow Lowercase Key Caps"
+                kAutoCapitalization: NSLocalizedString("auto_capitalization", comment: "The label for the Auto-Capitalization setting"),
+                kPeriodShortcut:  NSLocalizedString("._shortcut", comment: "The label for the period shortcut."),
+                kKeyboardClicks: NSLocalizedString("keyboard_clicks", comment: "The lable for the keyboard click setting"),
+                kSmallLowercase: NSLocalizedString("allow_lowercase_key_caps", comment: "The label for the lowercase key cap setting.")
             ]
         }
     }
     var settingsNotes: [String: String] {
         get {
             return [
-                kKeyboardClicks: "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.",
-                kSmallLowercase: "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in."
+                kKeyboardClicks: NSLocalizedString("keyboard_clicks_note", comment: "The note for the keyboard clicks setting."),
+                kSmallLowercase: NSLocalizedString("lowercase_key_cap_note", comment: "The note for the lowercase key cap setting.")
             ]
         }
     }
