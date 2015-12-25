@@ -103,6 +103,8 @@
 /* Begin PBXFileReference section */
 		0000C48E1BC9D0740097A1F9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0000C4921BC9D9AC0097A1F9 /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
+		002D6E661C2D2B920036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = HostingApp/sv.lproj/Main.strings; sourceTree = "<group>"; };
+		002D6E671C2D2B920036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00548B1B1BCC6C020049FB81 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
 		00D05C641C2C8245005D5444 /* Keyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		00D05C651C2C8246005D5444 /* CYRKeyboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRKeyboardButton.h; path = CYRKeyboardButton/CYRKeyboardButton.h; sourceTree = "<group>"; };
@@ -111,8 +113,8 @@
 		00D05C681C2C8246005D5444 /* CYRKeyboardButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRKeyboardButtonView.m; path = CYRKeyboardButton/CYRKeyboardButtonView.m; sourceTree = "<group>"; };
 		00D05C691C2C8246005D5444 /* TurtleBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurtleBezierPath.h; path = CYRKeyboardButton/TurtleBezierPath.h; sourceTree = "<group>"; };
 		00D05C6A1C2C8246005D5444 /* TurtleBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TurtleBezierPath.m; path = CYRKeyboardButton/TurtleBezierPath.m; sourceTree = "<group>"; };
+		00D05C701C2D27D2005D5444 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ar; path = HostingApp/ar.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00EFFCBE1C29E651000BC823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HostingApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		00EFFCC01C29E662000BC823 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = HostingApp/ar.lproj/Main.strings; sourceTree = "<group>"; };
 		00EFFCC41C29EC73000BC823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00EFFCC61C29EC8F000BC823 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E3B5A931A0654A8003366F6 /* KeyboardInputTraits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInputTraits.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				en,
 				Base,
 				ar,
+				sv,
 			);
 			mainGroup = 4E807D8A19461D9000D875D1;
 			productRefGroup = 4E807D9419461D9000D875D1 /* Products */;
@@ -564,7 +567,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				00EFFCBE1C29E651000BC823 /* Base */,
-				00EFFCC01C29E662000BC823 /* ar */,
+				00D05C701C2D27D2005D5444 /* ar */,
+				002D6E661C2D2B920036DEDE /* sv */,
 			);
 			name = Main.storyboard;
 			path = ..;
@@ -575,6 +579,7 @@
 			children = (
 				00EFFCC41C29EC73000BC823 /* en */,
 				00EFFCC61C29EC8F000BC823 /* ar */,
+				002D6E671C2D2B920036DEDE /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

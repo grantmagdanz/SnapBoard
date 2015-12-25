@@ -114,7 +114,7 @@ class KeyboardViewController: UIInputViewController {
             kAutoCapitalization: true,
             kPeriodShortcut: true,
             kKeyboardClicks: false,
-            kSmallLowercase: false
+            kSmallLowercase: true
         ])
         
         self.keyboard = defaultKeyboard()
@@ -326,11 +326,7 @@ class KeyboardViewController: UIInputViewController {
             self.setCapsIfNeeded()
             
         }
-        
-        if self.forwardingView.isLongPressEnable == false
-        {
-            self.view.bringSubviewToFront(self.bannerView!)
-        }
+
         viewLongPopUp.hidden = true
         
     }
