@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1000" y="252"/>
         </scene>
-        <!--Install-->
+        <!--Installera-->
         <scene sceneID="fbE-cB-Iyw">
             <objects>
                 <viewController storyboardIdentifier="install" id="nAo-DR-8Pl" customClass="InstallViewController" customModule="SnapBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,32 +39,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90d-ij-0mV">
-                                <rect key="frame" x="133" y="139" width="57" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inställningar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90d-ij-0mV">
+                                <rect key="frame" x="120" y="139" width="83.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-Ic-nPl">
-                                <rect key="frame" x="134" y="178" width="53.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allmänt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-Ic-nPl">
+                                <rect key="frame" x="135" y="178" width="52" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-vC-EIP">
-                                <rect key="frame" x="128" y="219" width="65.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tangentbord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-vC-EIP">
+                                <rect key="frame" x="117" y="219" width="88" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyboards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE4-tB-lx8">
-                                <rect key="frame" x="125" y="259" width="73" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tangentbord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE4-tB-lx8">
+                                <rect key="frame" x="117.5" y="259" width="88" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Keyboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pw7-Vd-1iE">
-                                <rect key="frame" x="95" y="300" width="131.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lägg till nytt tangentbord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pw7-Vd-1iE">
+                                <rect key="frame" x="74" y="300" width="173.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -108,17 +108,11 @@
                             <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="g65-23-QtN">
                                 <rect key="frame" x="19" y="86" width="282" height="324"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Install SnapBoard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-tr-Upj">
-                                <rect key="frame" x="101" y="119" width="119" height="17.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvW-Ww-diQ" userLabel="Top Helper View">
                                 <rect key="frame" x="16" y="20" width="288" height="63.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for using SnapBoard!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWn-SV-MH0">
-                                        <rect key="frame" x="34" y="21" width="221" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tack för att du använder SnapBoard!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWn-SV-MH0">
+                                        <rect key="frame" x="4" y="21" width="279.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -148,14 +142,14 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Full Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXT-bm-83g">
-                                        <rect key="frame" x="85" y="73" width="118" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tillåt full åtkomst" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXT-bm-83g">
+                                        <rect key="frame" x="85" y="73" width="117" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be able to enable keyboard clicks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edV-pt-Xjj">
-                                        <rect key="frame" x="29" y="6" width="228.5" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kunna aktivera tangentbordsklick" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edV-pt-Xjj">
+                                        <rect key="frame" x="29" y="6" width="229" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -169,12 +163,18 @@
                                     <constraint firstItem="4BW-fA-U1C" firstAttribute="top" secondItem="edV-pt-Xjj" secondAttribute="bottom" constant="9" id="DsB-Og-bRR"/>
                                     <constraint firstAttribute="centerX" secondItem="edV-pt-Xjj" secondAttribute="centerX" id="ZHy-hd-IF8"/>
                                     <constraint firstAttribute="centerY" secondItem="FDE-DB-VQI" secondAttribute="centerY" constant="-13.5" id="a1G-gp-F2j"/>
-                                    <constraint firstAttribute="centerY" secondItem="edV-pt-Xjj" secondAttribute="centerY" constant="32.75" id="o0J-03-5XE"/>
+                                    <constraint firstAttribute="centerY" secondItem="edV-pt-Xjj" secondAttribute="centerY" constant="33" id="o0J-03-5XE"/>
                                     <constraint firstAttribute="centerX" secondItem="FDE-DB-VQI" secondAttribute="centerX" constant="-0.5" id="pLJ-QG-cVT"/>
                                     <constraint firstAttribute="centerY" secondItem="4BW-fA-U1C" secondAttribute="centerY" constant="5.25" id="tN4-bE-Mav"/>
                                     <constraint firstAttribute="centerX" secondItem="kXT-bm-83g" secondAttribute="centerX" id="yaI-SS-tZb"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Installera SnapBoard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-tr-Upj">
+                                <rect key="frame" x="90" y="119" width="140.5" height="17.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -214,7 +214,7 @@
                             <constraint firstAttribute="centerX" secondItem="sRp-fX-iJB" secondAttribute="centerX" constant="-1.5" id="vI1-8h-fZl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Install" image="InstallIcon" id="pZR-wA-RLy"/>
+                    <tabBarItem key="tabBarItem" title="Installera" image="InstallIcon" id="pZR-wA-RLy"/>
                     <navigationItem key="navigationItem" id="act-PA-W3N"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvK-BB-OCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,14 +233,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyV-VO-xFF">
-                                <rect key="frame" x="8" y="70" width="304" height="425"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i62-M0-Xaq">
+                                <rect key="frame" x="141" y="35" width="37.5" height="54"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Use:">
+                                    <fragment>
+                                        <string key="content">Om
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.48234318617150063" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="23" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyV-VO-xFF">
+                                <rect key="frame" x="8" y="97" width="304" height="398"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Användning:">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -248,150 +267,118 @@
 Cg
 </string>
                                         <attributes>
-                                            <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">This app enables you to install a special keyboard designed to be used in Snapchat. When you are editing text on Snapchat, just switch to SnapBoard and press "return" to get a new line of text.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Privacy Policy:">
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">This keyboard does not collect your input or connect to the network even with "Allow Full Access" enabled. By default full access is disabled. This means that the keyboard operates in complete isolation from the rest of your apps. You only need to enable full access if you want to hear keyboard clicks; this is a limitation of iOS. If it is okay to not have keyboard clicks, the keyboard is still fully functional with "Allow Full Access" disabled. </string>
-                                        <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="None of your keystrokes are ever collected or sent over the network. Period.">
-                                        <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-CondensedBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Contact:">
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">All kinds of feedback are welcome and encouraged. If there is a feature you would like to see added, a bug you've come across, or something you really like please send an email to snapboard.dev@gmail.com.
+                                        <string key="content">Denna app gör att du kan installera ett speciellt tangentbord utformat för att användas i Snapchat. När du redigerar text på Snapchat, byt till SnapBoard och tryck på "Återvändande" för att få en ny textrad.
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="20" headIndent="20" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">Credits:
-</string>
+                                    <fragment content="Integritetspolicy:">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">- Alexei Baboulevitch (Archagon) for building an amazing open-source keyboard that can be found here: https://github.com/archagon/tasty-imitation-keyboard
-- Josh Chinn (joshlchinn.com) for helping with marketing, ideas, and life.
-- Aaron Jocelyn (@aronjaay on Instagram) for providing some gorgeous pictures for the screenshots and tutorial.
-- icons8 (icons8.com) for providing the icons used on the tab bar for free.</string>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
                                         <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="20" headIndent="20" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Detta tangentbord samlar inte in dina egna idéer eller ansluter till nätverket även med "Tillåt fullständig åtkomst" aktiverad. Som standard är full tillgång inaktiverad. Detta innebär att tangentbordet fungerar i fullständig isolering från resten av dina appar. Du behöver bara göra det möjligt för full tillgång om du vill höra tangentbordets klickljud, detta är en begränsning i iOS. Om det är okej att inte ha tangentbordsklick är tangentbordet fortfarande fullt funktionellt med "Tillåt fullständig åtkomst" inaktiverad. Inga av dina tangenttryckningar samlas in eller skickas över nätverket. Punkt slut.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="20" headIndent="20" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Kontakta:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Alla typer av återkoppling är välkommen och uppmuntras. Om det finns en funktion som du vill se tillagd, om du stött på en bugg, eller något du verkligen gillar, skicka ett mail till snapboard.dev@gmail.com.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="20" headIndent="20" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Tack till:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+- Alexei Baboulevitch (Archagon) för att ha byggt en fantastisk tangentbord baserar på öppen källkod som kan hittas här: https://github.com/archagon/tasty-imitation-keyboard
+- Josh Chinn (joshlchinn.com) för att ha hjälpt till med marknadsföring, idéer och livet.
+- Aaron Jocelyn (aronjaay på Instagram) för att ge några underbara bilder för skärmdumpar och handledning.
+- Icons8 (icons8.com) för att ha tillhandahållit ikonerna som används på fliken för gratis.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="432" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i62-M0-Xaq">
-                                <rect key="frame" x="129" y="35" width="62" height="27"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="About">
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="23" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -403,7 +390,7 @@ Cg
                             <constraint firstItem="RyV-VO-xFF" firstAttribute="top" secondItem="i62-M0-Xaq" secondAttribute="bottom" constant="8" id="kU3-qe-0qG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="AboutIcon" id="tz6-dI-8hS"/>
+                    <tabBarItem key="tabBarItem" title="Om" image="AboutIcon" id="tz6-dI-8hS"/>
                     <connections>
                         <outlet property="textView" destination="RyV-VO-xFF" id="qYE-GS-wXd"/>
                     </connections>
@@ -446,7 +433,7 @@ Cg
                             <constraint firstItem="KSe-aN-2Wp" firstAttribute="centerY" secondItem="Aml-dF-Gng" secondAttribute="centerY" id="diF-W8-hQ0"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="How To" image="HowToIcon" id="KrF-XI-YtY"/>
+                    <tabBarItem key="tabBarItem" title="Hur" image="HowToIcon" id="KrF-XI-YtY"/>
                     <connections>
                         <outlet property="screen" destination="KSe-aN-2Wp" id="846-G8-Ik9"/>
                     </connections>

@@ -27,8 +27,8 @@ page2_row1 = "_ \\ | ~ < > € £ ¥ •";
 page2_row2 = "123 . , ? ! ' Backspace";
 page2_row3 = "ABC KeyboardChange Settings Space Return";
 
-space = "space";
-return = "return";
+space = "mellanslag";
+return = "retur";
 
 // the label of the button to switch to numbers and symbols
 number_change = "123";
@@ -43,12 +43,12 @@ symbol_change = "#+=";
 press_and_hold_keys = "EUOAÖÄ";
 
 // Keyboard Settings
-general_settings = "General Settings";
-extra_settings = "Extra Settings";
-auto_capitalization = "Auto-Capitalization";
-._shortcut = "\".\" Shortcut";
-keyboard_clicks = "Keyboard Clicks";
-allow_lowercase_key_caps = "Allow Lowercase Key Caps";
+general_settings = "Allmänna Inställningar";
+extra_settings = "Extrainställningar";
+auto_capitalization = "Automatiska versaler";
+._shortcut = "\".\" Genväg";
+keyboard_clicks = "Tangentbordsklick";
+allow_lowercase_key_caps = "Tillåt gemener vid skrivande";
 
-keyboard_clicks_note = "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.";
-lowercase_key_cap_note = "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in.";
+keyboard_clicks_note = "Observera att tangentbordsklick endast fungerar om \"Tillåt fullständig åtkomst\" är aktiverat i tangentbordsinställningarna. Tyvärr är detta en begränsning av operativsystemet.";
+lowercase_key_cap_note = "Ändra dina tangenter till gemener när Shift är avstängt, vilket gör det lättare att säga vilket läge du befinner dig i.";

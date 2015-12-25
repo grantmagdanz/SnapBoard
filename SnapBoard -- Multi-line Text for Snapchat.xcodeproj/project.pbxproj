@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0000C48F1BC9D0740097A1F9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000C48E1BC9D0740097A1F9 /* AboutViewController.swift */; };
 		0000C4931BC9D9AC0097A1F9 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4921BC9D9AC0097A1F9 /* HowToViewController.swift */; };
+		0025E5451C2DEA4800C3121A /* DefaultSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0025E5471C2DEA4800C3121A /* DefaultSettings.xib */; };
 		00548B1C1BCC6C020049FB81 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 00548B1B1BCC6C020049FB81 /* tutorial.mp4 */; };
 		00D05C6B1C2C8246005D5444 /* CYRKeyboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C661C2C8246005D5444 /* CYRKeyboardButton.m */; };
 		00D05C6C1C2C8246005D5444 /* CYRKeyboardButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C681C2C8246005D5444 /* CYRKeyboardButtonView.m */; };
@@ -21,7 +22,6 @@
 		4E52A6D41A06A626006A08CE /* ExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52A6D31A06A626006A08CE /* ExtraView.swift */; };
 		4E52A6D61A06BADA006A08CE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E52A6D51A06BADA006A08CE /* Media.xcassets */; };
 		4E52A6D81A06C16C006A08CE /* DefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52A6D71A06C16C006A08CE /* DefaultSettings.swift */; };
-		4E52A6DA1A06C198006A08CE /* DefaultSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E52A6D91A06C198006A08CE /* DefaultSettings.xib */; };
 		4E5B67A2196E03B700114361 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B67A1196E03B700114361 /* KeyboardModel.swift */; };
 		4E60A13A1979FA5C00854CC8 /* KeyboardKeyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A1391979FA5C00854CC8 /* KeyboardKeyBackground.swift */; };
 		4E60A13C1979FA8E00854CC8 /* KeyboardConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60A13B1979FA8E00854CC8 /* KeyboardConnector.swift */; };
@@ -103,8 +103,11 @@
 /* Begin PBXFileReference section */
 		0000C48E1BC9D0740097A1F9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0000C4921BC9D9AC0097A1F9 /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
-		002D6E661C2D2B920036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = HostingApp/sv.lproj/Main.strings; sourceTree = "<group>"; };
+		0025E5461C2DEA4800C3121A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DefaultSettings.xib; sourceTree = "<group>"; };
+		0025E5491C2DEA4A00C3121A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DefaultSettings.strings; sourceTree = "<group>"; };
+		0025E54B1C2DEA4B00C3121A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DefaultSettings.strings; sourceTree = "<group>"; };
 		002D6E671C2D2B920036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		002D6E691C2DE5880036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = HostingApp/sv.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00548B1B1BCC6C020049FB81 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
 		00D05C641C2C8245005D5444 /* Keyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		00D05C651C2C8246005D5444 /* CYRKeyboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRKeyboardButton.h; path = CYRKeyboardButton/CYRKeyboardButton.h; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		4E52A6D31A06A626006A08CE /* ExtraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraView.swift; sourceTree = "<group>"; };
 		4E52A6D51A06BADA006A08CE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4E52A6D71A06C16C006A08CE /* DefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
-		4E52A6D91A06C198006A08CE /* DefaultSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultSettings.xib; sourceTree = "<group>"; };
 		4E5B67A1196E03B700114361 /* KeyboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardModel.swift; sourceTree = "<group>"; };
 		4E60A1391979FA5C00854CC8 /* KeyboardKeyBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyBackground.swift; sourceTree = "<group>"; };
 		4E60A13B1979FA8E00854CC8 /* KeyboardConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConnector.swift; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 				4E60A13B1979FA8E00854CC8 /* KeyboardConnector.swift */,
 				4E52A6D31A06A626006A08CE /* ExtraView.swift */,
 				4E52A6D71A06C16C006A08CE /* DefaultSettings.swift */,
-				4E52A6D91A06C198006A08CE /* DefaultSettings.xib */,
+				0025E5471C2DEA4800C3121A /* DefaultSettings.xib */,
 				4EEFD78A19E0DF15004D4974 /* Shapes.swift */,
 			);
 			name = Views;
@@ -476,7 +478,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E52A6DA1A06C198006A08CE /* DefaultSettings.xib in Resources */,
+				0025E5451C2DEA4800C3121A /* DefaultSettings.xib in Resources */,
 				00EFFCC31C29EC73000BC823 /* Localizable.strings in Resources */,
 				4E52A6D61A06BADA006A08CE /* Media.xcassets in Resources */,
 			);
@@ -563,12 +565,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0025E5471C2DEA4800C3121A /* DefaultSettings.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0025E5461C2DEA4800C3121A /* Base */,
+				0025E5491C2DEA4A00C3121A /* ar */,
+				0025E54B1C2DEA4B00C3121A /* sv */,
+			);
+			name = DefaultSettings.xib;
+			sourceTree = "<group>";
+		};
 		00EFFCBD1C29E651000BC823 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				00EFFCBE1C29E651000BC823 /* Base */,
 				00D05C701C2D27D2005D5444 /* ar */,
-				002D6E661C2D2B920036DEDE /* sv */,
+				002D6E691C2DE5880036DEDE /* sv */,
 			);
 			name = Main.storyboard;
 			path = ..;

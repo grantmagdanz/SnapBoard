@@ -18,13 +18,13 @@ page0_row2 = "ء ظ ط ذ د ز ر و ى Backspace";
 page0_row3 = "123 KeyboardChange Settings Space Return";
 
 page1_row0 = "١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٠";
-page1_row1 = "@ & $ ( ) ؛ : / - \"";
+page1_row1 = "- / : ؛ ( ) £ & @ \"";
 page1_row2 = "#+= . ، ؟ ! ' Backspace";
 page1_row3 = "ABC KeyboardChange Settings Space Return";
 
 page2_row0 = "[ ] { } # ٪‏ ^ * + =";
-page2_row1 = "_ \\ | ~ < > € £ ¥ •";
-page2_row2 = "#+= ' ! ? , . Backspace";
+page2_row1 = "_ \\ | ~ < > ﷼ $ € •";
+page2_row2 = "123 . , ? ! ' Backspace";
 page2_row3 = "ABC KeyboardChange Settings Space Return";
 
 return = "↳";
@@ -43,12 +43,12 @@ symbol_change = "#+=";
 press_and_hold_keys = "";
 
 // Keyboard Settings
-general_settings = "General Settings";
-extra_settings = "Extra Settings";
-auto_capitalization = "Auto-Capitalization";
-._shortcut = "\".\" Shortcut";
-keyboard_clicks = "Keyboard Clicks";
-allow_lowercase_key_caps = "Allow Lowercase Key Caps";
+general_settings = "إعدادات عامة";
+extra_settings = "إعدادات إضافية";
+auto_capitalization = "الكتابة التلقائية بخط كبير";
+._shortcut = "\".\" الاختصار";
+keyboard_clicks = "نقرات لوحة المفاتيح";
+allow_lowercase_key_caps = "السماح بمفاتيح الحروف الصغيرة";
 
-keyboard_clicks_note = "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.";
-lowercase_key_cap_note = "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in.";
+keyboard_clicks_note = "يرجى ملاحظة أن نقرات لوحة المفاتيح لن تعمل إلا إذا تم تمكين \"السماح بالوصول الكامل\" في إعدادات لوحة المفاتيح. للأسف، فهذه قيود على نظام التشغيل.";
+lowercase_key_cap_note = "يتم تغيير المفاتيح إلى أحرف صغيرة عند يكون مفتاح شفت متوقفا، مما يجعل من الاسهل معرفة الوضع الذي أنت فيه.";
