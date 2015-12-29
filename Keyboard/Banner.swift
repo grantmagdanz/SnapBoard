@@ -38,7 +38,6 @@ class Banner: ExtraView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(self.frame.height)
         self.iconView.center = self.center
         // TODO: hardcoded
         self.iconView.frame.origin = CGPointMake(self.iconView.frame.origin.x, 5)

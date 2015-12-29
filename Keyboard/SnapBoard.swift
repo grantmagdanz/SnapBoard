@@ -24,39 +24,15 @@ class Snapboard: KeyboardViewController {
         let textDocumentProxy = self.textDocumentProxy
         let keyOutput = key.outputForCase(self.shiftState.uppercase())
         
+        let contextBeforeTextInsertion = textDocumentProxy.documentContextBeforeInput
+        
+        textDocumentProxy.insertText(keyOutput)
+        
         if key.type == .Character || key.type == .SpecialCharacter {
-            let context = textDocumentProxy.documentContextBeforeInput
-            if context != nil {
-                if context!.characters.count < 2 {
-                    textDocumentProxy.insertText(keyOutput)
-                    return
-                }
-                
-                var index = context!.endIndex
-                
-                index = index.predecessor()
-                if context![index] != " " {
-                    textDocumentProxy.insertText(keyOutput)
-                    return
-                }
-                
-                index = index.predecessor()
-                if context![index] == " " {
-                    textDocumentProxy.insertText(keyOutput)
-                    return
-                }
-
-                textDocumentProxy.insertText(keyOutput)
-                return
+            let contextAfterTextInsertion = textDocumentProxy.documentContextBeforeInput
+            if contextBeforeTextInsertion == contextAfterTextInsertion {
+                textDocumentProxy.insertText("\u{200B}\n\(keyOutput)")
             }
-            else {
-                textDocumentProxy.insertText(keyOutput)
-                return
-            }
-        }
-        else {
-            textDocumentProxy.insertText(keyOutput)
-            return
         }
     }
     
