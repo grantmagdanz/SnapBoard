@@ -12,8 +12,6 @@ class Snapboard: KeyboardViewController {
     let ATTEMPTED_CHARACTER_KEY = "attemptedCharacter"
     let AUTOWRAP_WAIT_TIME = 0.05
     
-    let takeDebugScreenshot: Bool = false
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         NSUserDefaults.standardUserDefaults()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -60,26 +58,6 @@ class Snapboard: KeyboardViewController {
                 // the character was not added. Add in a new line and the character.
                 let typedCharacter = userInfo[ATTEMPTED_CHARACTER_KEY]!
                 self.textDocumentProxy.insertText("\u{200B}\n\(typedCharacter)")
-            }
-        }
-    }
-    
-    override func setupKeys() {
-        super.setupKeys()
-        
-        if takeDebugScreenshot {
-            if self.layout == nil {
-                return
-            }
-            
-            for page in keyboard.pages {
-                for rowKeys in page.rows {
-                    for key in rowKeys {
-                        if let keyView = self.layout!.viewForKey(key) {
-                            keyView.addTarget(self, action: "takeScreenshotDelay", forControlEvents: .TouchDown)
-                        }
-                    }
-                }
             }
         }
     }
