@@ -29,7 +29,7 @@ class Snapboard: KeyboardViewController {
         
         textDocumentProxy.insertText(keyOutput)
         
-        if key.type == .Character || key.type == .SpecialCharacter {
+        if key.type == .Character || key.type == .SpecialCharacter || key.type == .Period || key.type == .Space {
             if let contextBeforeTextInsertion = contextBeforeTextInsertionOpt {
                 
                 // The Snapchat app itself is stopping extra characters from being added. Calling documentContextBeforeInput after a textInsert makes it appear that the character was inserted correctly even if it was not inserted at all (at least from the view of the Snapchat user). So in order to see if we need to autowrap, a brief timer is put onto the call to let Snapchat do its thing and then we test if the character was actually added.
@@ -57,7 +57,21 @@ class Snapboard: KeyboardViewController {
             if contextBeforeTextInsertion == contextAfterTextInsertion {
                 // the character was not added. Add in a new line and the character.
                 let typedCharacter = userInfo[ATTEMPTED_CHARACTER_KEY]!
-                self.textDocumentProxy.insertText("\u{200B}\n\(typedCharacter)")
+                
+                // if the previous character was a space, we just want to add in the new line and the character without wrapping a word
+                var positionAdjustment = 0
+                if contextBeforeTextInsertion.characters.last! != " " {
+                    // we need to wrap a word!
+                    let words = contextBeforeTextInsertion.characters.split{$0 == " "}.map(String.init)
+                    let lastWord = words.last!
+                    positionAdjustment = lastWord.characters.count
+                }
+                
+                // reminder: positionAdjustment == 0 if the last character was a space
+                self.textDocumentProxy.adjustTextPositionByCharacterOffset(-positionAdjustment)
+                self.textDocumentProxy.insertText("\u{200B}\n")
+                self.textDocumentProxy.adjustTextPositionByCharacterOffset(positionAdjustment)
+                self.textDocumentProxy.insertText(typedCharacter)
             }
         }
     }
