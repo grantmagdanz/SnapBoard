@@ -40,6 +40,7 @@ class KeyboardViewController: UIInputViewController {
     var forwardingView: ForwardingView!
     var layout: KeyboardLayout?
     var heightConstraint: NSLayoutConstraint?
+    var spellChecker: SpellChecker?
     
     var bannerView: ExtraView?
     var settingsView: ExtraView?
@@ -121,6 +122,8 @@ class KeyboardViewController: UIInputViewController {
         
         self.shiftState = .Disabled
         self.currentMode = 0
+        
+        self.spellChecker = SpellChecker(contentsOfFile: String(NSBundle.mainBundle().pathForResource("big", ofType: "txt")!))
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         

@@ -29,6 +29,13 @@ class Snapboard: KeyboardViewController {
         
         textDocumentProxy.insertText(keyOutput)
         
+        // SPELL CHECK
+        if key.type == .Space {
+            let word = contextBeforeTextInsertionOpt!.characters.split{$0 == " "}.map(String.init).last!
+            let correctWord = spellChecker!.correct(word)
+            textDocumentProxy.insertText(correctWord)
+        }
+        
         if key.type == .Character || key.type == .SpecialCharacter || key.type == .Period || key.type == .Space {
             if let contextBeforeTextInsertion = contextBeforeTextInsertionOpt {
                 
