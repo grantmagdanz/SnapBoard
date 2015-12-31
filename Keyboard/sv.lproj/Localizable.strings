@@ -49,6 +49,8 @@ auto_capitalization = "Automatiska versaler";
 ._shortcut = "\".\" Genväg";
 keyboard_clicks = "Tangentbordsklick";
 allow_lowercase_key_caps = "Tillåt gemener vid skrivande";
+wrap_lines = "Wrap Linjer";
 
 keyboard_clicks_note = "Observera att tangentbordsklick endast fungerar om \"Tillåt fullständig åtkomst\" är aktiverat i tangentbordsinställningarna. Tyvärr är detta en begränsning av operativsystemet.";
 lowercase_key_cap_note = "Ändra dina tangenter till gemener när Shift är avstängt, vilket gör det lättare att säga vilket läge du befinner dig i.";
+wrap_lines_note = "När funktionen är aktiverad, kommer SnapBoard försöka linda din text i Snapchat när du kommer till slutet av en rad så att du kan bara hålla skriva!";

@@ -49,6 +49,9 @@ auto_capitalization = "Auto-Capitalization";
 ._shortcut = "\".\" Shortcut";
 keyboard_clicks = "Keyboard Clicks";
 allow_lowercase_key_caps = "Allow Lowercase Key Caps";
+auto_correct = "Autocorrect";
+wrap_lines = "Wrap Lines";
 
 keyboard_clicks_note = "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.";
 lowercase_key_cap_note = "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in.";
+wrap_lines_note = "When enabled, SnapBoard will attempt to wrap your text in Snapchat when you get to the end of a line so you can just keep typing!";

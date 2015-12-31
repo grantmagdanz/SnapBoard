@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0000C48F1BC9D0740097A1F9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000C48E1BC9D0740097A1F9 /* AboutViewController.swift */; };
 		0000C4931BC9D9AC0097A1F9 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0000C4921BC9D9AC0097A1F9 /* HowToViewController.swift */; };
-		001C8E7A1C33CD6000C5CDDE /* frequencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 001C8E791C33CD6000C5CDDE /* frequencies.plist */; };
+		001C8E7E1C33DE9200C5CDDE /* frequencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 001C8E7D1C33DE9200C5CDDE /* frequencies.plist */; };
 		0025E5451C2DEA4800C3121A /* DefaultSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0025E5471C2DEA4800C3121A /* DefaultSettings.xib */; };
+		0042351A1C34E5510033EA02 /* wordlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 004235191C34E5510033EA02 /* wordlist.plist */; };
 		00548B1C1BCC6C020049FB81 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 00548B1B1BCC6C020049FB81 /* tutorial.mp4 */; };
 		009D29E01C3370B9000D9FC3 /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D29DF1C3370B9000D9FC3 /* SpellChecker.swift */; };
-		009D29E41C337251000D9FC3 /* big.txt in Resources */ = {isa = PBXBuildFile; fileRef = 009D29E31C337251000D9FC3 /* big.txt */; };
 		00D05C6B1C2C8246005D5444 /* CYRKeyboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C661C2C8246005D5444 /* CYRKeyboardButton.m */; };
 		00D05C6C1C2C8246005D5444 /* CYRKeyboardButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C681C2C8246005D5444 /* CYRKeyboardButtonView.m */; };
 		00D05C6D1C2C8246005D5444 /* TurtleBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C6A1C2C8246005D5444 /* TurtleBezierPath.m */; };
@@ -106,15 +106,15 @@
 /* Begin PBXFileReference section */
 		0000C48E1BC9D0740097A1F9 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0000C4921BC9D9AC0097A1F9 /* HowToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
-		001C8E791C33CD6000C5CDDE /* frequencies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frequencies.plist; sourceTree = "<group>"; };
+		001C8E7D1C33DE9200C5CDDE /* frequencies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frequencies.plist; sourceTree = "<group>"; };
 		0025E5461C2DEA4800C3121A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DefaultSettings.xib; sourceTree = "<group>"; };
 		0025E5491C2DEA4A00C3121A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DefaultSettings.strings; sourceTree = "<group>"; };
 		0025E54B1C2DEA4B00C3121A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DefaultSettings.strings; sourceTree = "<group>"; };
 		002D6E671C2D2B920036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		002D6E691C2DE5880036DEDE /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = HostingApp/sv.lproj/Main.storyboard; sourceTree = "<group>"; };
+		004235191C34E5510033EA02 /* wordlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wordlist.plist; sourceTree = "<group>"; };
 		00548B1B1BCC6C020049FB81 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
 		009D29DF1C3370B9000D9FC3 /* SpellChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellChecker.swift; sourceTree = "<group>"; };
-		009D29E31C337251000D9FC3 /* big.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = big.txt; sourceTree = "<group>"; };
 		00D05C641C2C8245005D5444 /* Keyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		00D05C651C2C8246005D5444 /* CYRKeyboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRKeyboardButton.h; path = CYRKeyboardButton/CYRKeyboardButton.h; sourceTree = "<group>"; };
 		00D05C661C2C8246005D5444 /* CYRKeyboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRKeyboardButton.m; path = CYRKeyboardButton/CYRKeyboardButton.m; sourceTree = "<group>"; };
@@ -321,8 +321,8 @@
 		4E807DBB19461DC700D875D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				001C8E791C33CD6000C5CDDE /* frequencies.plist */,
-				009D29E31C337251000D9FC3 /* big.txt */,
+				004235191C34E5510033EA02 /* wordlist.plist */,
+				001C8E7D1C33DE9200C5CDDE /* frequencies.plist */,
 				00EFFCC51C29EC73000BC823 /* Localizable.strings */,
 				4E807DBC19461DC700D875D1 /* Info.plist */,
 			);
@@ -488,10 +488,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0025E5451C2DEA4800C3121A /* DefaultSettings.xib in Resources */,
+				001C8E7E1C33DE9200C5CDDE /* frequencies.plist in Resources */,
+				0042351A1C34E5510033EA02 /* wordlist.plist in Resources */,
 				00EFFCC31C29EC73000BC823 /* Localizable.strings in Resources */,
-				001C8E7A1C33CD6000C5CDDE /* frequencies.plist in Resources */,
 				4E52A6D61A06BADA006A08CE /* Media.xcassets in Resources */,
-				009D29E41C337251000D9FC3 /* big.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

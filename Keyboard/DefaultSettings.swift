@@ -26,27 +26,49 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     // TODO: these probably don't belong here, and also need to be localized
     var settingsList: [(String, [String])] {
         get {
-            return [
-                (NSLocalizedString("general_settings", comment: "The label for general settings."), [kAutoCapitalization, kPeriodShortcut, kKeyboardClicks]),
-                (NSLocalizedString("extra_settings", comment: "The label for extra settings."), [kSmallLowercase])
-            ]
+            // we don't want to autocorrect in another language
+            if NSLocale.preferredLanguages()[0] == "en" {
+                return [
+                    (NSLocalizedString("general_settings", comment: "The label for general settings."), [kAutoCapitalization, kPeriodShortcut, kAutocorrect, kWrapLines, kKeyboardClicks]),
+                    (NSLocalizedString("extra_settings", comment: "The label for extra settings."), [kSmallLowercase])
+                ]
+            } else {
+                return [
+                    (NSLocalizedString("general_settings", comment: "The label for general settings."), [kAutoCapitalization, kPeriodShortcut, kWrapLines, kKeyboardClicks]),
+                    (NSLocalizedString("extra_settings", comment: "The label for extra settings."), [kSmallLowercase])
+                ]
+            }
         }
     }
     var settingsNames: [String:String] {
         get {
-            return [
-                kAutoCapitalization: NSLocalizedString("auto_capitalization", comment: "The label for the Auto-Capitalization setting"),
-                kPeriodShortcut:  NSLocalizedString("._shortcut", comment: "The label for the period shortcut."),
-                kKeyboardClicks: NSLocalizedString("keyboard_clicks", comment: "The lable for the keyboard click setting"),
-                kSmallLowercase: NSLocalizedString("allow_lowercase_key_caps", comment: "The label for the lowercase key cap setting.")
-            ]
+            if NSLocale.preferredLanguages()[0] == "en" {
+                return [
+                    kAutoCapitalization: NSLocalizedString("auto_capitalization", comment: "The label for the Auto-Capitalization setting"),
+                    kPeriodShortcut:  NSLocalizedString("._shortcut", comment: "The label for the period shortcut."),
+                    kKeyboardClicks: NSLocalizedString("keyboard_clicks", comment: "The lable for the keyboard click setting"),
+                    kSmallLowercase: NSLocalizedString("allow_lowercase_key_caps", comment: "The label for the lowercase key cap setting."),
+                    kAutocorrect: NSLocalizedString("auto_correct", comment: "The label for the autocorrect key cap setting."),
+                    kWrapLines: NSLocalizedString("wrap_lines", comment: "The label for the wrap lines key cap setting")
+                ]
+            } else {
+                return [
+                    kAutoCapitalization: NSLocalizedString("auto_capitalization", comment: "The label for the Auto-Capitalization setting"),
+                    kPeriodShortcut:  NSLocalizedString("._shortcut", comment: "The label for the period shortcut."),
+                    kKeyboardClicks: NSLocalizedString("keyboard_clicks", comment: "The lable for the keyboard click setting"),
+                    kSmallLowercase: NSLocalizedString("allow_lowercase_key_caps", comment: "The label for the lowercase key cap setting."),
+                    kWrapLines: NSLocalizedString("wrap_lines", comment: "The label for the wrap lines key cap setting")
+                ]
+            }
+            
         }
     }
     var settingsNotes: [String: String] {
         get {
             return [
                 kKeyboardClicks: NSLocalizedString("keyboard_clicks_note", comment: "The note for the keyboard clicks setting."),
-                kSmallLowercase: NSLocalizedString("lowercase_key_cap_note", comment: "The note for the lowercase key cap setting.")
+                kSmallLowercase: NSLocalizedString("lowercase_key_cap_note", comment: "The note for the lowercase setting."),
+                kWrapLines: NSLocalizedString("wrap_lines_note", comment: "The note for the wrap lines setting.")
             ]
         }
     }

@@ -29,18 +29,11 @@ class Snapboard: KeyboardViewController {
         
         textDocumentProxy.insertText(keyOutput)
         
-        // SPELL CHECK
-        if key.type == .Space {
-            let word = contextBeforeTextInsertionOpt!.characters.split{$0 == " "}.map(String.init).last!
-            let correctWord = spellChecker!.correct(word)
-            textDocumentProxy.insertText(correctWord)
-        }
-        
         if key.type == .Character || key.type == .SpecialCharacter || key.type == .Period || key.type == .Space {
             if let contextBeforeTextInsertion = contextBeforeTextInsertionOpt {
                 
                 // The Snapchat app itself is stopping extra characters from being added. Calling documentContextBeforeInput after a textInsert makes it appear that the character was inserted correctly even if it was not inserted at all (at least from the view of the Snapchat user). So in order to see if we need to autowrap, a brief timer is put onto the call to let Snapchat do its thing and then we test if the character was actually added.
-                NSTimer.scheduledTimerWithTimeInterval(AUTOWRAP_WAIT_TIME, target: self, selector: "autoWrapIfNeeded:", userInfo: [CONTEXT_BEFORE_INSERTION_KEY: contextBeforeTextInsertion, ATTEMPTED_CHARACTER_KEY: keyOutput], repeats: false)
+               NSTimer.scheduledTimerWithTimeInterval(AUTOWRAP_WAIT_TIME, target: self, selector: "autoWrapIfNeeded:", userInfo: [CONTEXT_BEFORE_INSERTION_KEY: contextBeforeTextInsertion, ATTEMPTED_CHARACTER_KEY: keyOutput], repeats: false)
             }
         }
     }
@@ -57,6 +50,10 @@ class Snapboard: KeyboardViewController {
         Used for autowrapping in Snapchat.
     */
     func autoWrapIfNeeded(timer: NSTimer) {
+        if !NSUserDefaults.standardUserDefaults().boolForKey(kWrapLines) {
+            return
+        }
+        
         let userInfo = timer.userInfo as! [String: String]
         let contextBeforeTextInsertion = userInfo[CONTEXT_BEFORE_INSERTION_KEY]!
         
@@ -79,6 +76,7 @@ class Snapboard: KeyboardViewController {
                 self.textDocumentProxy.insertText("\u{200B}\n")
                 self.textDocumentProxy.adjustTextPositionByCharacterOffset(positionAdjustment)
                 self.textDocumentProxy.insertText(typedCharacter)
+                justAutowrapped = true
             }
         }
     }
