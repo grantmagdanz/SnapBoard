@@ -21,13 +21,28 @@ class Snapboard: KeyboardViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func contextChanged() {
+        self.setCapsIfNeeded()
+        if let context = self.textDocumentProxy.documentContextBeforeInput {
+            if context[context.endIndex.predecessor()] == " " {
+                self.autoPeriodState = .FirstSpace
+                return
+            }
+        }
+        self.autoPeriodState = .NoSpace
+    }
+    
     override func keyPressed(key: Key) {
         let textDocumentProxy = self.textDocumentProxy
         let keyOutput = key.outputForCase(self.shiftState.uppercase())
         
         let contextBeforeTextInsertionOpt = textDocumentProxy.documentContextBeforeInput
         
-        textDocumentProxy.insertText(keyOutput)
+        if key.type == .Return && contextBeforeTextInsertionOpt != nil && contextBeforeTextInsertionOpt!.characters.last == " " {
+            self.textDocumentProxy.deleteBackward()
+        }
+        
+        self.textDocumentProxy.insertText(keyOutput)
         
         if key.type == .Character || key.type == .SpecialCharacter || key.type == .Period || key.type == .Space {
             if let contextBeforeTextInsertion = contextBeforeTextInsertionOpt {
@@ -62,6 +77,8 @@ class Snapboard: KeyboardViewController {
                 // the character was not added. Add in a new line and the character.
                 let typedCharacter = userInfo[ATTEMPTED_CHARACTER_KEY]!
                 
+                self.autoWrappedMidSentence = !isFirstWord()
+                
                 // if the previous character was a space, we just want to add in the new line and the character without wrapping a word
                 var positionAdjustment = 0
                 if contextBeforeTextInsertion.characters.last! != " " {
@@ -69,16 +86,42 @@ class Snapboard: KeyboardViewController {
                     let words = contextBeforeTextInsertion.characters.split{$0 == " "}.map(String.init)
                     let lastWord = words.last!
                     positionAdjustment = lastWord.characters.count
+                } else {
+                    // the space adds some issues at the end of lines, so let's just get rid of it
+                    self.textDocumentProxy.deleteBackward()
                 }
+                
+                setCapsIfNeeded()
                 
                 // reminder: positionAdjustment == 0 if the last character was a space
                 self.textDocumentProxy.adjustTextPositionByCharacterOffset(-positionAdjustment)
                 self.textDocumentProxy.insertText("\u{200B}\n")
                 self.textDocumentProxy.adjustTextPositionByCharacterOffset(positionAdjustment)
                 self.textDocumentProxy.insertText(typedCharacter)
-                justAutowrapped = true
+                
+                if typedCharacter == " " {
+                    self.handleAutoPeriod(Key(.Space))
+                }
             }
         }
+    }
+    
+    func isFirstWord() -> Bool {
+        if let context = self.textDocumentProxy.documentContextBeforeInput {
+            let words = context.characters.split{$0 == " "}.map(String.init)
+            if words.count > 1 {
+                let previousWord: String
+                if context.characters.last! != " " {
+                    previousWord = words[words.count - 2]
+                } else {
+                    // this is the special case where the user is typing the first letter of a word so when we split on spaces we actually want the last index, not the second to last
+                    previousWord = words[words.count - 1]
+                }
+                let charView = String(previousWord.characters.last!)
+                return ".?!".rangeOfString(charView) != nil
+            }
+        }
+        return true
     }
     
     override func createBanner() -> ExtraView? {

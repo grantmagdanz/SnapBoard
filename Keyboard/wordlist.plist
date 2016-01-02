@@ -2615,8 +2615,6 @@
 	<string>Alyssa's</string>
 	<string>Alzheimer</string>
 	<string>Alzheimer's</string>
-	<string>AM</string>
-	<string>Am</string>
 	<string>am</string>
 	<string>AMA</string>
 	<string>Amadeus</string>
@@ -45255,10 +45253,7 @@
 	<string>imputing</string>
 	<string>Imus</string>
 	<string>Imus's</string>
-	<string>IN</string>
-	<string>In</string>
 	<string>in</string>
-	<string>Ina</string>
 	<string>inabilities</string>
 	<string>inability</string>
 	<string>inability's</string>
@@ -80914,8 +80909,6 @@
 	<string>Scythia's</string>
 	<string>scything</string>
 	<string>SD</string>
-	<string>SE</string>
-	<string>Se</string>
 	<string>sea</string>
 	<string>seabed</string>
 	<string>seabed's</string>
@@ -92795,8 +92788,6 @@
 	<string>thyroid's</string>
 	<string>thyroids</string>
 	<string>thyself</string>
-	<string>Ti</string>
-	<string>ti</string>
 	<string>Tia</string>
 	<string>Tianjin</string>
 	<string>Tianjin's</string>
@@ -101788,7 +101779,6 @@
 	<string>Wong's</string>
 	<string>won's</string>
 	<string>won't</string>
-	<string>wont</string>
 	<string>wonted</string>
 	<string>wont's</string>
 	<string>woo</string>
@@ -102407,8 +102397,6 @@
 	<string>xylophonist</string>
 	<string>xylophonist's</string>
 	<string>xylophonists</string>
-	<string>Y</string>
-	<string>y</string>
 	<string>Yacc</string>
 	<string>Yacc's</string>
 	<string>yacht</string>
@@ -102534,6 +102522,7 @@
 	<string>yaw's</string>
 	<string>yaws</string>
 	<string>yaws's</string>
+	<string>yay</string>
 	<string>Yb</string>
 	<string>Yb's</string>
 	<string>yd</string>

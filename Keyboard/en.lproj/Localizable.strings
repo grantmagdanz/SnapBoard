@@ -49,7 +49,7 @@ auto_capitalization = "Auto-Capitalization";
 ._shortcut = "\".\" Shortcut";
 keyboard_clicks = "Keyboard Clicks";
 allow_lowercase_key_caps = "Allow Lowercase Key Caps";
-auto_correct = "Autocorrect";
+auto_correct = "Auto-Correct";
 wrap_lines = "Wrap Lines";
 
 keyboard_clicks_note = "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.";

@@ -12,10 +12,19 @@
 import Foundation
 
 struct SpellChecker {
+    // the point at when the concurrent edits2 finds solutions iteratively
+    let ITERATIVE_THRESHOLD = 10
     
     var wordFrequencies: NSDictionary
     var words: NSArray
-    var literalCorrections = NSDictionary(dictionary: ["i": "I"])
+    
+    // the spell checker will be passing in strings in all lowercase, so these keys need to be lowercase as well!
+    var directCorrections = NSDictionary(dictionary: [
+        "i": "I",
+        "lets": "let's",
+        "snapboard": "SnapBoard"
+        ])
+
     
     init?(frequenciesFile: String, wordListFile: String) {
         if let frequencies = NSDictionary(contentsOfFile: frequenciesFile) {
@@ -67,14 +76,43 @@ struct SpellChecker {
 
     
     func knownEdits2(word: String) -> Set<String>? {
-        var known_edits: Set<String> = []
-        let possibleEdits = edits(word)
-        for edit in possibleEdits {
-            if let k = known(edits(edit)) {
-                known_edits.unionInPlace(k)
+        let possibleEdits = Array(edits(word))
+        
+        // setup concurrency
+        let group = dispatch_group_create()
+        let queue = dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
+        
+        let numberOfThreads = Int(ceil(Double(possibleEdits.count) / Double(ITERATIVE_THRESHOLD)))
+        
+        // we need an array of Sets to make sure that we don't have a race condition
+        var knownEditsOfEachThread: [Set<String>?] = [Set<String>?](count: numberOfThreads, repeatedValue: nil)
+        
+        // dispatch threads
+        for i in 0..<numberOfThreads {
+            dispatch_group_async(group, queue) {
+                let base = i * self.ITERATIVE_THRESHOLD
+                var knownEditsOfThisThread = Set<String>()
+                
+                // this takes care of the last iteration where we may not want to go ITERATIVE_THRESHOLD times
+                let end = min(base + self.ITERATIVE_THRESHOLD, possibleEdits.count)
+                for curr in base ..< end {
+                    if let k = self.known(self.edits(possibleEdits[curr])) {
+                        knownEditsOfThisThread.unionInPlace(k)
+                    }
+                }
+                knownEditsOfEachThread[i] = knownEditsOfThisThread
             }
         }
-        return known_edits.isEmpty ? nil : known_edits
+        
+        var knownEdits: Set<String> = []
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
+        for edits in knownEditsOfEachThread {
+            if edits != nil {
+                knownEdits.unionInPlace(edits!)
+            }
+        }
+        print(knownEdits.count)
+        return knownEdits.isEmpty ? nil : knownEdits
     }
     
     func known<S: SequenceType where S.Generator.Element == String>(words: S) -> Set<String>? {
@@ -90,8 +128,12 @@ struct SpellChecker {
         }
         
         // Check if there is a direct edit
-        if let literalCorrection = literalCorrections.valueForKey(word) {
-            return (literalCorrection as! String, true)
+        if let directCorrection = directCorrections.valueForKey(word.lowercaseString) as? String {
+            if directCorrection.capitalizedString == directCorrection {
+                return (directCorrection, true)
+            } else {
+                return (directCorrection, false)
+            }
         }
         
         // Is this a word already? Let's find out...

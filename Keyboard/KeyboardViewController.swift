@@ -85,7 +85,7 @@ class KeyboardViewController: UIInputViewController {
     var autocorrectState: AutocorrectState
     
     // used to determine if a line should start with a capital letter or not
-    var justAutowrapped: Bool
+    var autoWrappedMidSentence: Bool
     
     var shiftState: ShiftState {
         didSet {
@@ -140,13 +140,14 @@ class KeyboardViewController: UIInputViewController {
         self.currentMode = 0
         
         autocorrectState = .AutocorrectWord
-        justAutowrapped = false;
+        autoWrappedMidSentence = false;
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         // Spins a thread off to setup the spell checker to speed up load time (at least according to what the user sees)
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
-            self.spellChecker = SpellChecker(frequenciesFile: String(NSBundle.mainBundle().pathForResource("frequencies", ofType: "plist")!),
-                wordListFile: String(NSBundle.mainBundle().pathForResource("wordlist", ofType: "plist")!))
+            let frequenciesFilePath = String(NSBundle.mainBundle().pathForResource("frequencies", ofType: "plist")!)
+            let wordListFilePath = String(NSBundle.mainBundle().pathForResource("wordlist", ofType: "plist")!)
+            self.spellChecker = SpellChecker(frequenciesFile: frequenciesFilePath, wordListFile: wordListFilePath)
         }
         
         self.forwardingView = ForwardingView(frame: CGRectZero)
@@ -471,6 +472,7 @@ class KeyboardViewController: UIInputViewController {
 
     // TODO: this is currently not working as intended; only called when selection changed -- iOS bug
     override func textDidChange(textInput: UITextInput?) {
+        // Note to self: This function is called at interesting times. It seems like in Snapchat at least it is after every word
         self.contextChanged()
     }
     
@@ -534,7 +536,7 @@ class KeyboardViewController: UIInputViewController {
             
             if let keyOutput = model.lowercaseOutput {
                 if self.characterIsWhitespacePuncuationOrComma(keyOutput.characters.last!) {
-                    justAutowrapped = false
+                    autoWrappedMidSentence = false
                     self.autocorrectState = .AutocorrectWord
                 }
             }
@@ -550,7 +552,7 @@ class KeyboardViewController: UIInputViewController {
     
     func autocorrect(key: Key) {
         // long test. Essentially if autocorrect is disable for some reason, the user has backspaced back to a previous word, spellChecker is nil for some reason which is most likely becuase of an async call to set it up, or the preferred language isn't English (we don't want to autocorrect Arabic now do we!?).
-        if self.autocorrectState == .DoNotAutocorrectWord || self.autocorrectState == .AutocorrectDisabled || !NSUserDefaults.standardUserDefaults().boolForKey(kAutocorrect) || spellChecker == nil || NSLocale.preferredLanguages()[0] != "en" {
+        if self.autocorrectState == .DoNotAutocorrectWord || self.autocorrectState == .AutocorrectDisabled || !NSUserDefaults.standardUserDefaults().boolForKey(kAutocorrect) || spellChecker == nil || NSLocale.preferredLanguages()[0] != "en-US" {
             return
         }
         if var context = self.textDocumentProxy.documentContextBeforeInput {
@@ -562,7 +564,7 @@ class KeyboardViewController: UIInputViewController {
             let previousContext = context.characters.dropLast()
             
             // Testing if the current key is either a space or a punctuation mark AND the previous character is not one of those.
-            if self.characterIsWhitespacePuncuationOrComma(context.characters.last!) && !self.characterIsWhitespacePuncuationOrComma(previousContext.last!) {
+            if self.characterIsWhitespacePuncuationOrComma(context.characters.last!) && previousContext.count > 0 && !self.characterIsWhitespacePuncuationOrComma(previousContext.last!) {
                 let word = previousContext.split{$0 == " "}.map(String.init).last!
                 let correctWordTuple = spellChecker!.correct(word.lowercaseString)
                 var correctWord = correctWordTuple.correctWord
@@ -672,9 +674,6 @@ class KeyboardViewController: UIInputViewController {
         }
         textDocumentProxy.deleteBackward()
         
-        if let key = self.layout?.keyForView(sender) {
-            self.handleAutoPeriod(key)
-        }
         self.setCapsIfNeeded()
         
         // trigger for subsequent deletes
@@ -946,38 +945,7 @@ class KeyboardViewController: UIInputViewController {
                 }
                 
             case .Sentences:
-                if let beforeContext = textDocumentProxy.documentContextBeforeInput {
-                    let offset = min(3, beforeContext.characters.count)
-                    var index = beforeContext.endIndex
-                    
-                    for (var i = 0; i < offset; i += 1) {
-                        index = index.predecessor()
-                        let char = beforeContext[index]
-                        
-                        if characterIsPunctuation(char) {
-                            if i == 0 {
-                                return false //not enough spaces after punctuation
-                            }
-                            else {
-                                return true //punctuation with at least one space after it
-                            }
-                        }
-                        else {
-                            if !characterIsWhitespace(char) {
-                                return false //hit a foreign character before getting to 3 spaces
-                            }
-                            else if characterIsNewline(char) {
-                                return true //hit start of line
-                            }
-                        }
-                    }
-                    
-                    return true //either got 3 spaces or hit start of line
-                }
-                else {
-                    // this is so when SnapBoard autowraps a line, it does not automatically capitalize the first word on the new line
-                    return !justAutowrapped
-                }
+                return isStartOfSentence() && !autoWrappedMidSentence
             case .AllCharacters:
                 return true
             }
@@ -985,6 +953,41 @@ class KeyboardViewController: UIInputViewController {
         else {
             return false
         }
+    }
+    
+    func isStartOfSentence() -> Bool {
+        if let beforeContext = textDocumentProxy.documentContextBeforeInput {
+            let offset = min(3, beforeContext.characters.count)
+            var index = beforeContext.endIndex
+            
+            for (var i = 0; i < offset; i += 1) {
+                index = index.predecessor()
+                let char = beforeContext[index]
+                
+                if characterIsPunctuation(char) {
+                    if i == 0 {
+                        return false //not enough spaces after punctuation
+                    }
+                    else {
+                        return true //punctuation with at least one space after it
+                    }
+                }
+                else {
+                    if !characterIsWhitespace(char) {
+                        return false //hit a foreign character before getting to 3 spaces
+                    }
+                    else if characterIsNewline(char) {
+                        return true //hit start of line
+                    }
+                }
+            }
+            
+            return true //either got 3 spaces or hit start of line
+        }
+        else {
+            return true
+        }
+
     }
     
     // this only works if full access is enabled

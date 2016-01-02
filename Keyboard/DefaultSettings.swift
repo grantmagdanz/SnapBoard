@@ -27,7 +27,7 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     var settingsList: [(String, [String])] {
         get {
             // we don't want to autocorrect in another language
-            if NSLocale.preferredLanguages()[0] == "en" {
+            if NSLocale.preferredLanguages()[0] == "en-US" {
                 return [
                     (NSLocalizedString("general_settings", comment: "The label for general settings."), [kAutoCapitalization, kPeriodShortcut, kAutocorrect, kWrapLines, kKeyboardClicks]),
                     (NSLocalizedString("extra_settings", comment: "The label for extra settings."), [kSmallLowercase])
@@ -42,7 +42,7 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     }
     var settingsNames: [String:String] {
         get {
-            if NSLocale.preferredLanguages()[0] == "en" {
+            if NSLocale.preferredLanguages()[0] == "en-US" {
                 return [
                     kAutoCapitalization: NSLocalizedString("auto_capitalization", comment: "The label for the Auto-Capitalization setting"),
                     kPeriodShortcut:  NSLocalizedString("._shortcut", comment: "The label for the period shortcut."),
