@@ -24,7 +24,7 @@ class InstallViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: UPDATE_11)
             let alert = UIAlertView()
             alert.title = "Update!"
-            alert.message = "SnapBoard now has autocorrect and line wrapping! You can disable both by going into SnapBoard settings (the gear icon on the keyboard). Thanks for being awesome. :)"
+            alert.message = "SnapBoard now has line wrapping! You can disable it by going into SnapBoard settings (the gear icon on the keyboard). Thanks for being awesome. :)"
             alert.addButtonWithTitle("I got it!")
             alert.show()
         }

@@ -30,7 +30,6 @@ let kAutoCapitalization = "kAutoCapitalization"
 let kPeriodShortcut = "kPeriodShortcut"
 let kKeyboardClicks = "kKeyboardClicks"
 let kSmallLowercase = "kSmallLowercase"
-let kAutocorrect = "kAutocorrect"
 let kWrapLines = "kAutowrapLines"
 
 class KeyboardViewController: UIInputViewController {
@@ -42,7 +41,6 @@ class KeyboardViewController: UIInputViewController {
     var forwardingView: ForwardingView!
     var layout: KeyboardLayout?
     var heightConstraint: NSLayoutConstraint?
-    var spellChecker: SpellChecker? = nil
     
     var bannerView: ExtraView?
     var settingsView: ExtraView?
@@ -75,17 +73,6 @@ class KeyboardViewController: UIInputViewController {
     
     var autoPeriodState: AutoPeriodState = .NoSpace
     var lastCharCountInBeforeContext: Int = 0
-    
-    enum AutocorrectState {
-        case AutocorrectWord
-        case DoNotAutocorrectWord
-        case AutocorrectDisabled
-    }
-    
-    var autocorrectState: AutocorrectState
-    
-    // used to determine if a line should start with a capital letter or not
-    var autoWrappedMidSentence: Bool
     
     var shiftState: ShiftState {
         didSet {
@@ -129,7 +116,6 @@ class KeyboardViewController: UIInputViewController {
             kPeriodShortcut: true,
             kKeyboardClicks: false,
             kSmallLowercase: true,
-            kAutocorrect: true,
             kWrapLines: true
             
         ])
@@ -138,17 +124,8 @@ class KeyboardViewController: UIInputViewController {
         
         self.shiftState = .Disabled
         self.currentMode = 0
-        
-        autocorrectState = .AutocorrectWord
-        autoWrappedMidSentence = false;
+
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        // Spins a thread off to setup the spell checker to speed up load time (at least according to what the user sees)
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
-            let frequenciesFilePath = String(NSBundle.mainBundle().pathForResource("frequencies", ofType: "plist")!)
-            let wordListFilePath = String(NSBundle.mainBundle().pathForResource("wordlist", ofType: "plist")!)
-            self.spellChecker = SpellChecker(frequenciesFile: frequenciesFilePath, wordListFile: wordListFilePath)
-        }
         
         self.forwardingView = ForwardingView(frame: CGRectZero)
         self.view.addSubview(self.forwardingView)
@@ -532,12 +509,8 @@ class KeyboardViewController: UIInputViewController {
                 self.currentMode = 0
             }
             
-            self.autocorrect(model)
-            
             if let keyOutput = model.lowercaseOutput {
                 if self.characterIsWhitespacePuncuationOrComma(keyOutput.characters.last!) {
-                    autoWrappedMidSentence = false
-                    self.autocorrectState = .AutocorrectWord
                 }
             }
             
@@ -548,50 +521,6 @@ class KeyboardViewController: UIInputViewController {
         }
         
         self.setCapsIfNeeded()
-    }
-    
-    func autocorrect(key: Key) {
-        // long test. Essentially if autocorrect is disable for some reason, the user has backspaced back to a previous word, spellChecker is nil for some reason which is most likely becuase of an async call to set it up, or the preferred language isn't English (we don't want to autocorrect Arabic now do we!?).
-        if self.autocorrectState == .DoNotAutocorrectWord || self.autocorrectState == .AutocorrectDisabled || !NSUserDefaults.standardUserDefaults().boolForKey(kAutocorrect) || spellChecker == nil || NSLocale.preferredLanguages()[0] != "en-US" {
-            return
-        }
-        if var context = self.textDocumentProxy.documentContextBeforeInput {
-            // get the context before we entered out last character
-            if (context.characters.last! == "\n") {
-                // we see a new line so we need to drop one more to take the no width space into account
-                context = String(context.characters.dropLast())
-            }
-            let previousContext = context.characters.dropLast()
-            
-            // Testing if the current key is either a space or a punctuation mark AND the previous character is not one of those.
-            if self.characterIsWhitespacePuncuationOrComma(context.characters.last!) && previousContext.count > 0 && !self.characterIsWhitespacePuncuationOrComma(previousContext.last!) {
-                let word = previousContext.split{$0 == " "}.map(String.init).last!
-                let correctWordTuple = spellChecker!.correct(word.lowercaseString)
-                var correctWord = correctWordTuple.correctWord
-                // delete incorrectly typed word
-                for _ in 0...word.characters.count {
-                    textDocumentProxy.deleteBackward()
-                }
-                
-                // since characters are being deleted, we need to set caps before determining how we should modify the corrected word
-                setCapsIfNeeded()
-                
-                switch self.shiftState {
-                case .Disabled:
-                    if !correctWordTuple.literal {
-                        correctWord = correctWord.lowercaseString
-                    }
-                case .Enabled:
-                    if !correctWordTuple.literal {
-                        correctWord = correctWord.capitalizedString
-                    }
-                case .Locked:
-                    correctWord = correctWord.uppercaseString
-                }
-                
-                self.textDocumentProxy.insertText(correctWord + key.outputForCase(self.shiftState.uppercase()))
-            }
-        }
     }
     
     func handleAutoPeriod(key: Key) {
@@ -662,8 +591,6 @@ class KeyboardViewController: UIInputViewController {
         let textDocumentProxy = self.textDocumentProxy
         let context = textDocumentProxy.documentContextBeforeInput
         
-        self.setAutocorrect()
-        
         if context != nil && context!.characters.count > 1 {
             // if the character to delete is a new line character, we need
             // to delete the empty space character as well.
@@ -695,8 +622,6 @@ class KeyboardViewController: UIInputViewController {
         
         let textDocumentProxy = self.textDocumentProxy
         let context = textDocumentProxy.documentContextBeforeInput
-        
-        self.setAutocorrect()
         
         if context != nil && context!.characters.count > 1 {
             // if the character to delete is a new line character, we need
@@ -839,18 +764,6 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
-    func setAutocorrect() -> Bool {
-        if self.autocorrectState == .AutocorrectDisabled || self.autocorrectState == .DoNotAutocorrectWord || !NSUserDefaults.standardUserDefaults().boolForKey(kAutocorrect){
-            return false
-        } else if self.shouldAutocorrect() {
-            self.autocorrectState = .AutocorrectWord
-            return true
-        } else {
-            self.autocorrectState = .DoNotAutocorrectWord
-            return false
-        }
-    }
-    
     func setCapsIfNeeded() -> Bool {
         if self.shouldAutoCapitalize() {
             switch self.shiftState {
@@ -945,7 +858,7 @@ class KeyboardViewController: UIInputViewController {
                 }
                 
             case .Sentences:
-                return isStartOfSentence() && !autoWrappedMidSentence
+                return isStartOfSentence()
             case .AllCharacters:
                 return true
             }

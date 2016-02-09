@@ -77,8 +77,6 @@ class Snapboard: KeyboardViewController {
                 // the character was not added. Add in a new line and the character.
                 let typedCharacter = userInfo[ATTEMPTED_CHARACTER_KEY]!
                 
-                self.autoWrappedMidSentence = !isFirstWord()
-                
                 // if the previous character was a space, we just want to add in the new line and the character without wrapping a word
                 var positionAdjustment = 0
                 if contextBeforeTextInsertion.characters.last! != " " {
@@ -104,24 +102,6 @@ class Snapboard: KeyboardViewController {
                 }
             }
         }
-    }
-    
-    func isFirstWord() -> Bool {
-        if let context = self.textDocumentProxy.documentContextBeforeInput {
-            let words = context.characters.split{$0 == " "}.map(String.init)
-            if words.count > 1 {
-                let previousWord: String
-                if context.characters.last! != " " {
-                    previousWord = words[words.count - 2]
-                } else {
-                    // this is the special case where the user is typing the first letter of a word so when we split on spaces we actually want the last index, not the second to last
-                    previousWord = words[words.count - 1]
-                }
-                let charView = String(previousWord.characters.last!)
-                return ".?!".rangeOfString(charView) != nil
-            }
-        }
-        return true
     }
     
     override func createBanner() -> ExtraView? {
