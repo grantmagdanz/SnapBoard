@@ -43,6 +43,10 @@ class Keyboard {
         
         self.pages[page].addKey(key, row: row)
     }
+    
+    func isInTopRow(key: Key) -> Bool {
+        return pages[0].rows[0].contains(key)
+    }
 }
 
 class Page {

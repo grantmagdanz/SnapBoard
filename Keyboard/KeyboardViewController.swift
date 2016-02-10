@@ -823,21 +823,6 @@ class KeyboardViewController: UIInputViewController {
         return true
     }
     
-    // this should be called during a delete, but before the delete is done. Tests if the previous character is whitespace and the character before that is a letter
-    func shouldAutocorrect() -> Bool {
-        if let context = textDocumentProxy.documentContextBeforeInput {
-            if context.characters.count > 1 {
-                let index = context.endIndex
-                let previousCharacter = context[index.predecessor()]
-                let previousPreviousCharacter = context[index.predecessor().predecessor()]
-                if self.characterIsWhitespacePuncuationOrComma(previousCharacter) && self.characterIsLetter(previousPreviousCharacter) {
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    
     func shouldAutoCapitalize() -> Bool {
         if !NSUserDefaults.standardUserDefaults().boolForKey(kAutoCapitalization) {
             return false
@@ -951,6 +936,9 @@ class KeyboardViewController: UIInputViewController {
                 if arrOptions.count > 0 {
                     if arrOptions[0].characters.count > 0 {
                         var offsetY : CGFloat = 9
+                        var offsetHeight : CGFloat = 0
+                        
+                        let keyIsInTopRow = keyboard.isInTopRow(key)
                         
                         if KeyboardViewController.getDeviceType() == TTDeviceType.TTDeviceTypeIPhone4 {
                             offsetY = 9
@@ -970,17 +958,23 @@ class KeyboardViewController: UIInputViewController {
                             }
                             
                         } else if KeyboardViewController.getDeviceType() == TTDeviceType.TTDeviceTypeIPhone6p {
-                            offsetY = 16
+                            offsetY = 15
                             if self.interfaceOrientation == UIInterfaceOrientation.LandscapeLeft || self.interfaceOrientation == UIInterfaceOrientation.LandscapeRight {
                                 offsetY = 3
+                            } else if keyIsInTopRow {
+                                offsetHeight -= 6
                             }
+                        }
+                        
+                        if keyIsInTopRow {
+                            // if the key is in the top row, we want to make the pop up shorter so it isn't cutoff if it goes out of the view bounds
+                            offsetY -= 12
+                            offsetHeight -= 8
                         }
                         
                         self.button.removeFromSuperview()
                         
-                        self.button.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - offsetY, sender.frame.size.width, sender.frame.size.height)
-                        
-                        //					self.button.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y , sender.frame.size.width, sender.frame.size.height)
+                        self.button.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - offsetY, sender.frame.size.width, sender.frame.size.height + offsetHeight)
                         
                         self.view.insertSubview(self.button, aboveSubview: self.forwardingView)
                         
