@@ -39,9 +39,6 @@ alphabet_change = "ابج";
 // the label of the button to switch to extra symbols
 symbol_change = "#+=";
 
-// hese are the keys that have extra options when pressed and held
-press_and_hold_keys = "هبليءىوجزفكا";
-
 // Keyboard Settings
 general_settings = "إعدادات عامة";
 extra_settings = "إعدادات إضافية";

@@ -909,6 +909,8 @@ class KeyboardViewController: UIInputViewController {
         button.setupInputOptionsConfigurationWithView(forwardingView)
         button.hidden = true
         viewLongPopUp.hidden = true
+        
+        forwardingView.setLongHoldKeys(keyboard.getLongHoldKeys())
     }
     
     // called when a key that is allowed to have multiple characters is pressed and held

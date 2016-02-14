@@ -12,7 +12,7 @@
  Page 1 is the page with special characters and numbers
  Page 2 is the page with more special characters and no numbers
 */
-page0_row0 = "Q W E R T Y U I O P";
+page0_row0 = "Q W E,é R T Y U I O P";
 page0_row1 = "A S D F G H J K L";
 page0_row2 = "Shift Z X C V B N M Backspace";
 page0_row3 = "123 KeyboardChange Settings Space Return";
@@ -38,9 +38,6 @@ alphabet_change = "ABC";
 
 // the label of the button to switch to extra symbols
 symbol_change = "#+=";
-
-// hese are the keys that have extra options when pressed and held
-press_and_hold_keys = "";
 
 // Keyboard Settings
 general_settings = "General Settings";
