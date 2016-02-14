@@ -936,9 +936,6 @@ class KeyboardViewController: UIInputViewController {
                 if arrOptions.count > 0 {
                     if arrOptions[0].characters.count > 0 {
                         var offsetY : CGFloat = 9
-                        var offsetHeight : CGFloat = 0
-                        
-                        let keyIsInTopRow = keyboard.isInTopRow(key)
                         
                         if KeyboardViewController.getDeviceType() == TTDeviceType.TTDeviceTypeIPhone4 {
                             offsetY = 9
@@ -961,20 +958,12 @@ class KeyboardViewController: UIInputViewController {
                             offsetY = 15
                             if self.interfaceOrientation == UIInterfaceOrientation.LandscapeLeft || self.interfaceOrientation == UIInterfaceOrientation.LandscapeRight {
                                 offsetY = 3
-                            } else if keyIsInTopRow {
-                                offsetHeight -= 6
                             }
-                        }
-                        
-                        if keyIsInTopRow {
-                            // if the key is in the top row, we want to make the pop up shorter so it isn't cutoff if it goes out of the view bounds
-                            offsetY -= 12
-                            offsetHeight -= 8
                         }
                         
                         self.button.removeFromSuperview()
                         
-                        self.button.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - offsetY, sender.frame.size.width, sender.frame.size.height + offsetHeight)
+                        self.button.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y + sender.frame.size.height - offsetY, sender.frame.size.width, sender.frame.size.height)
                         
                         self.view.insertSubview(self.button, aboveSubview: self.forwardingView)
                         
