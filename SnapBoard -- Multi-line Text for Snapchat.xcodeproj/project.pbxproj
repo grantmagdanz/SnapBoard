@@ -14,6 +14,7 @@
 		0042351A1C34E5510033EA02 /* wordlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 004235191C34E5510033EA02 /* wordlist.plist */; };
 		00548B1C1BCC6C020049FB81 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 00548B1B1BCC6C020049FB81 /* tutorial.mp4 */; };
 		009D29E01C3370B9000D9FC3 /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D29DF1C3370B9000D9FC3 /* SpellChecker.swift */; };
+		00CD5E201C702F41003FA08B /* LanguageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CD5E1F1C702F41003FA08B /* LanguageUtil.swift */; };
 		00D05C6B1C2C8246005D5444 /* CYRKeyboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C661C2C8246005D5444 /* CYRKeyboardButton.m */; };
 		00D05C6C1C2C8246005D5444 /* CYRKeyboardButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C681C2C8246005D5444 /* CYRKeyboardButtonView.m */; };
 		00D05C6D1C2C8246005D5444 /* TurtleBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D05C6A1C2C8246005D5444 /* TurtleBezierPath.m */; };
@@ -115,6 +116,7 @@
 		004235191C34E5510033EA02 /* wordlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wordlist.plist; sourceTree = "<group>"; };
 		00548B1B1BCC6C020049FB81 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
 		009D29DF1C3370B9000D9FC3 /* SpellChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellChecker.swift; sourceTree = "<group>"; };
+		00CD5E1F1C702F41003FA08B /* LanguageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
 		00D05C641C2C8245005D5444 /* Keyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		00D05C651C2C8246005D5444 /* CYRKeyboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRKeyboardButton.h; path = CYRKeyboardButton/CYRKeyboardButton.h; sourceTree = "<group>"; };
 		00D05C661C2C8246005D5444 /* CYRKeyboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRKeyboardButton.m; path = CYRKeyboardButton/CYRKeyboardButton.m; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			children = (
 				4EE7599A19F75A0D00B4E6ED /* Utilities.swift */,
 				009D29DF1C3370B9000D9FC3 /* SpellChecker.swift */,
+				00CD5E1F1C702F41003FA08B /* LanguageUtil.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				4ECBD90219F16DC7004FA2A3 /* DefaultKeyboard.swift in Sources */,
 				4E3B5A941A0654A8003366F6 /* KeyboardInputTraits.swift in Sources */,
 				4E52A6D81A06C16C006A08CE /* DefaultSettings.swift in Sources */,
+				00CD5E201C702F41003FA08B /* LanguageUtil.swift in Sources */,
 				4E72C96819E04A7A00DFDDB0 /* SnapBoard.swift in Sources */,
 				00D05C6B1C2C8246005D5444 /* CYRKeyboardButton.m in Sources */,
 				4E60A13E1979FB2E00854CC8 /* DirectionEnum.swift in Sources */,

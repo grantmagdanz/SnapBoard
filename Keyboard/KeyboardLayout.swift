@@ -840,11 +840,11 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
     }
     
     func characterRowHeuristic(row: [Key]) -> Bool {
-        return (row.count >= 1 && row[0].isCharacter)
+        return (row.count >= 1 && row[0].isCharacter && row[row.count - 1].isCharacter)
     }
     
     func doubleSidedRowHeuristic(row: [Key]) -> Bool {
-        return (row.count >= 3 && !row[0].isCharacter && row[1].isCharacter)
+        return (row.count >= 3 && (!row[0].isCharacter || !row[row.count - 1].isCharacter) && row[1].isCharacter)
     }
     
     func layoutCharacterRow(row: [Key], keyWidth: CGFloat, gapWidth: CGFloat, frame: CGRect) -> [CGRect] {
@@ -852,7 +852,9 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
         
         let keySpace = CGFloat(row.count) * keyWidth + CGFloat(row.count - 1) * gapWidth
         var actualGapWidth = gapWidth
-        var sideSpace = (frame.width - keySpace) / CGFloat(2)
+        
+        // if the device is in Arabic we don't want rows to be centered
+        var sideSpace = deviceIsInArabic() ? CGFloat(0) : (frame.width - keySpace) / CGFloat(2)
         
         // TODO: port this to the other layout functions
         // avoiding rounding errors
@@ -910,15 +912,28 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
         let specialCharacterGap = sideSpace - specialCharacterWidth
         
         var currentOrigin = frame.origin.x
-        for (k, _) in row.enumerate() {
-            if k == 0 {
+        for (k, key) in row.enumerate() {
+            if k == 0 && !key.isCharacter {
                 frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, specialCharacterWidth, frame.height))
                 currentOrigin += (specialCharacterWidth + specialCharacterGap)
             }
             else if k == row.count - 1 {
-                currentOrigin += specialCharacterGap
-                frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, specialCharacterWidth, frame.height))
-                currentOrigin += specialCharacterWidth
+                if key.type == .Backspace {
+                    if deviceIsInArabic() {
+                        // TODO: Because of how Arabic is laid out (no shift and not centered), I'm just recomputing the values above, but instead of using row.count, the values are hardcoded as 5 and 4. This ensures that the backspace character is the same width on each key page.
+                        let cWidth = CGFloat(5) * keyWidth + CGFloat(4) * keyGap
+                        let aWidth = cWidth < standardWidth ? standardWidth : cWidth
+                        let sSpace = (frame.width - aWidth) / CGFloat(2)
+                        specialCharacterWidth = sSpace * m + c
+                    }
+                    
+                    currentOrigin = CGFloat(frame.width - specialCharacterWidth + 3)
+                    frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, specialCharacterWidth, frame.height))
+                } else {
+                    currentOrigin += specialCharacterGap
+                    frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, specialCharacterWidth, frame.height))
+                    currentOrigin += specialCharacterWidth
+                }
             }
             else {
                 frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, actualKeyWidth, frame.height))
@@ -955,15 +970,16 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
         }
         
         assert(keysBeforeSpace <= 3, "invalid number of keys before space (only max 3 currently supported)")
-        assert(keysAfterSpace == 1, "invalid number of keys after space (only default 1 currently supported)")
+        assert(keysAfterSpace <= 2, "invalid number of keys after space (only max 2 currently supported)")
         
         let hasButtonInMicButtonPosition = (keysBeforeSpace == 3)
+        let hasKeyAfterSpace = keysAfterSpace == 2
         
         var leftSideAreaWidth = frame.width * leftSideRatio
         let rightSideAreaWidth = frame.width * rightSideRatio
         var leftButtonWidth = (leftSideAreaWidth - (gapWidth * CGFloat(2 - 1))) / CGFloat(2)
         leftButtonWidth = rounded(leftButtonWidth)
-        var rightButtonWidth = (rightSideAreaWidth - (gapWidth * CGFloat(keysAfterSpace - 1))) / CGFloat(keysAfterSpace)
+        var rightButtonWidth = (rightSideAreaWidth - (gapWidth * CGFloat(keysAfterSpace - 1)))
         rightButtonWidth = rounded(rightButtonWidth)
         
         let micButtonWidth = (isLandscape ? leftButtonWidth : leftButtonWidth * micButtonRatio)
@@ -974,10 +990,19 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
         }
         
         var spaceWidth = frame.width - leftSideAreaWidth - rightSideAreaWidth - gapWidth * CGFloat(2)
+        
+        // We want the extra key to cut into the width of the space character, not the return key
+        if hasKeyAfterSpace {
+            spaceWidth -= keyWidth;
+        }
         spaceWidth = rounded(spaceWidth)
         
         var currentOrigin = frame.origin.x
         var beforeSpace: Bool = true
+        
+        // hella hardcoded
+        let keyAfterPosition = hasButtonInMicButtonPosition ? 4: 5;
+        let micButtonPosition = 2;
         for (k, key) in row.enumerate() {
             if key.type == Key.KeyType.Space {
                 frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, spaceWidth, frame.height))
@@ -985,7 +1010,7 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
                 beforeSpace = false
             }
             else if beforeSpace {
-                if hasButtonInMicButtonPosition && k == 2 { //mic button position
+                if hasButtonInMicButtonPosition && k == micButtonPosition {
                     frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, micButtonWidth, frame.height))
                     currentOrigin += (micButtonWidth + gapWidth)
                 }
@@ -995,8 +1020,13 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
                 }
             }
             else {
-                frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, rightButtonWidth, frame.height))
-                currentOrigin += (rightButtonWidth + gapWidth)
+                if hasKeyAfterSpace && k == keyAfterPosition {
+                    frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, keyWidth, frame.height))
+                    currentOrigin += (keyWidth + gapWidth)
+                } else {
+                    frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, rightButtonWidth, frame.height))
+                    currentOrigin += (rightButtonWidth + gapWidth)
+                }
             }
         }
 

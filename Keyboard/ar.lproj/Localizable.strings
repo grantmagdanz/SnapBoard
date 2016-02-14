@@ -15,7 +15,7 @@
 page0_row0 = "ض ص ث ق ف,ڤ غ ع ه,هـ خ ح ج,چ";
 page0_row1 = "ش س ي,ئ ب,پ ل,لا ا,أ,إ,آ ت ن م ك,گ ة";
 page0_row2 = "ء,أ,إ,ئ,ؤ ظ ط ذ د ز,ژ ر و,ؤ ى,ئ Backspace";
-page0_row3 = "123 KeyboardChange Settings Space Return";
+page0_row3 = "123 KeyboardChange Settings Space A Return";
 
 page1_row0 = "١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٠";
 page1_row1 = "- / : ؛ ( ) £ & @ \"";
@@ -40,7 +40,7 @@ alphabet_change = "ابج";
 symbol_change = "#+=";
 
 // hese are the keys that have extra options when pressed and held
-press_and_hold_keys = "هبليءىوجزفكا";
+press_and_hold_keys = "Aهبليءىوجزفكا";
 
 // Keyboard Settings
 general_settings = "إعدادات عامة";
