@@ -15,7 +15,7 @@
 page0_row0 = "ض ص ث ق ف,ڤ غ ع ه,هـ خ ح ج,چ";
 page0_row1 = "ش س ي,ئ ب,پ ل,لا ا,أ,إ,آ ت ن م ك,گ ة";
 page0_row2 = "ء,أ,إ,ئ,ؤ ظ ط ذ د ز,ژ ر و,ؤ ى,ئ Backspace";
-page0_row3 = "123 KeyboardChange Settings Space Return";
+page0_row3 = "123 KeyboardChange Settings Space uni(064B),uni(064D),uni(0652),uni(064E),uni(064C),uni(0651),uni(0650),uni(064F),uni(064C),uni(0640),uni(0670),uni(0653) Return";
 
 page1_row0 = "١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ٠";
 page1_row1 = "- / : ؛ ( ) £ & @ \"";

@@ -10,6 +10,19 @@
 import Foundation
 
 func defaultKeyboard() -> Keyboard {
+    let unicodeTranslation = [
+        "uni(064B)": "\u{064B}",
+        "uni(064D)": "\u{064D}",
+        "uni(0652)": "\u{0652}",
+        "uni(064E)": "\u{064E}",
+        "uni(0651)": "\u{0651}",
+        "uni(0650)": "\u{0650}",
+        "uni(064F)": "\u{064F}",
+        "uni(064C)": "\u{064C}",
+        "uni(0640)": "\u{0640}",
+        "uni(0670)": "\u{0670}",
+        "uni(0653)": "\u{0653}"
+    ]
     let defaultKeyboard = Keyboard()
     
     for pageNum in 0...2 {
@@ -21,6 +34,8 @@ func defaultKeyboard() -> Keyboard {
                 if key.characters.count > 1 {
                     charactersForKey = key.characters.split{$0 == ","}.map(String.init)
                 }
+                
+                charactersForKey = charactersForKey.map({ character in unicodeTranslation[character] ?? character })
                 let keyModel: Key
                 if pageNum == 0 {
                     // the first page contains all the letters which are .Character Keys
