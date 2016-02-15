@@ -1001,7 +1001,7 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
         var beforeSpace: Bool = true
         
         // hella hardcoded
-        let keyAfterPosition = hasButtonInMicButtonPosition ? 4: 5;
+        let keyAfterSpacePosition = hasButtonInMicButtonPosition ? 4: 5;
         let micButtonPosition = 2;
         for (k, key) in row.enumerate() {
             if key.type == Key.KeyType.Space {
@@ -1020,7 +1020,7 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
                 }
             }
             else {
-                if hasKeyAfterSpace && k == keyAfterPosition {
+                if hasKeyAfterSpace && k == keyAfterSpacePosition {
                     frames.append(CGRectMake(rounded(currentOrigin), frame.origin.y, keyWidth, frame.height))
                     currentOrigin += (keyWidth + gapWidth)
                 } else {
